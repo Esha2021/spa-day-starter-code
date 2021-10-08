@@ -24,3 +24,10 @@ table {
             padding: 10px;
             text-align: center;
 }
+
+.box {
+  height: 20px;
+  width: 20px;
+  color: #fff;
+
+}
