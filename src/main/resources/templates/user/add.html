@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+
 <head>
-    <meta charset="UTF-8">
-    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
-    <title>Sign Up</title>
+    <meta charset="UTF-8"/>
+    <title>User registration</title>
 </head>
 <body>
-    <form method = 'post' th:action="@{/user}">
-        <label>
-            Username:
-            <input type = 'text' name = 'username' th:value="${username}">
+<form method="post" action="/user">
+<div class="form_group">
+    <label>UserName:
+        <input th:field="${user.username}" th:value="${username}" class="form-control">
+    </label>
+    <p class="errors" th:errors="${user.username}"></p>
+</div>
+<div class="form_group">
+    <label>Email:
+        <input  th:field="${user.email}" th:value="${email}" class="form-control">
+    </label>
+    <p class="errors" th:errors="${user.email}"></p>
+</div>
+    <div class="form_group">
+        <label>password:
+            <input  th:field="${user.password}" class="form-control">
         </label>
+        <p class="errors" th:errors="${user.password}"></p>
+    </div>
 
-        <label>
-            Email:
-            <input type = 'email' name = 'email' th:value="${email}">
+    <div class="form_group">
+        <label>verifyPassword:
+            <input  type=password th:field="${user.verifyPassword}" class="form-control">
         </label>
+        <p class="errors" th:errors="${user.verifyPassword}"></p>
+    </div>
 
-        <label>
-            Password:
-            <input type = 'password' name = 'password'>
-        </label>
-
-        <label>
-            Verify Password:
-            <input type = 'password' name = 'verify'>
-        </label>
-
-        <p th:text="${error}"></p>
-
-        <input type = 'submit' value = 'Sign Up'>
-    </form>
+ <div class="form_group">
+    <input type="submit" value="add" class="btn btn-success">
+ </div>
+</form>
 
 </body>
 </html>
